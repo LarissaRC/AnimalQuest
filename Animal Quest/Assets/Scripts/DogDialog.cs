@@ -49,7 +49,16 @@ public class DogDialog : MonoBehaviour
     public void Speech(string txt)
     {
         dialogObj.SetActive(true);
-        sentence = txt;
+
+        if(GameController.instance.pineapple == 1)
+        {
+            sentence = "chomp chomp gostoso pra cachorro chomp";
+        }
+        else
+        {
+            sentence = txt;
+        }
+
         StartCoroutine(TypeSentence());
     }
 
@@ -68,8 +77,10 @@ public class DogDialog : MonoBehaviour
         started = false;
         speechText.text = "";
 
-        if(GameController.instance.orange == 1)
+        if(GameController.instance.pineapple == 1)
         {
+            GameController.instance.pineapple -= 1;
+            GameController.instance.UpdateScoreText(4);
             sleepingDog.SetActive(true);
             Destroy(gameObject);
         }

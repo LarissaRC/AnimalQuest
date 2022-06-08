@@ -51,7 +51,44 @@ public class CowDialog : MonoBehaviour
     public void Speech(string txt)
     {
         dialogObj.SetActive(true);
-        sentence = txt;
+        
+        switch(fruitType)
+        {
+            case 1:
+                if(GameController.instance.apple == 1)
+                {
+                    sentence = "Saboroso, falta so o leite";
+                }
+                else
+                {
+                    sentence = txt;
+                }
+            break;
+
+            case 2:
+                if(GameController.instance.banana == 1)
+                {
+                    sentence = "isso ta muuuuuuito bom";
+                }
+                else
+                {
+                    sentence = txt;
+                }
+            break;
+
+            case 3:
+                if(GameController.instance.kiwi == 1)
+                {
+                    sentence = "enchi, agora vou pro brejo";
+                }
+                else
+                {
+                    sentence = txt;
+                }
+            break;
+        }
+        
+
         StartCoroutine(TypeSentence());
     }
 
@@ -76,6 +113,8 @@ public class CowDialog : MonoBehaviour
             case 1:
                 if(GameController.instance.apple == 1)
                     {
+                        GameController.instance.apple -= 1;
+                        GameController.instance.UpdateScoreText(0);
                         sleepingCow.SetActive(true);
                         Destroy(gameObject);
                     }
@@ -83,6 +122,8 @@ public class CowDialog : MonoBehaviour
             case 2:
                 if(GameController.instance.banana == 1)
                     {
+                        GameController.instance.banana -= 1;
+                        GameController.instance.UpdateScoreText(1);
                         sleepingCow.SetActive(true);
                         Destroy(gameObject);
                     }
@@ -90,16 +131,12 @@ public class CowDialog : MonoBehaviour
             case 3:
                 if(GameController.instance.kiwi == 1)
                     {
+                        GameController.instance.kiwi -= 1;
+                        GameController.instance.UpdateScoreText(2);
                         sleepingCow.SetActive(true);
                         Destroy(gameObject);
                     }
             break;
-        }
-
-        if(GameController.instance.orange == 1)
-        {
-            sleepingCow.SetActive(true);
-            Destroy(gameObject);
         }
     }
 

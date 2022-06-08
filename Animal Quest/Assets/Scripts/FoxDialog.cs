@@ -50,7 +50,15 @@ public class FoxDialog : MonoBehaviour
     public void Speech(string txt)
     {
         dialogObj.SetActive(true);
-        sentence = txt;
+
+        if(GameController.instance.orange == 1)
+        {
+            sentence = "hhmm que delicia!";
+        }
+        else
+        {
+            sentence = txt;
+        }
         StartCoroutine(TypeSentence());
     }
 
@@ -71,6 +79,8 @@ public class FoxDialog : MonoBehaviour
 
         if(GameController.instance.orange == 1)
         {
+            GameController.instance.orange -= 1;
+            GameController.instance.UpdateScoreText(3);
             sleepingFox.SetActive(true);
             Destroy(gameObject);
         }

@@ -49,7 +49,16 @@ public class SquirrelDialog : MonoBehaviour
     public void Speech(string txt)
     {
         dialogObj.SetActive(true);
-        sentence = txt;
+        
+        if(GameController.instance.strawberry == 1)
+        {
+            sentence = "squi squi magnifico!!";
+        }
+        else
+        {
+            sentence = txt;
+        }
+
         StartCoroutine(TypeSentence());
     }
 
@@ -69,8 +78,10 @@ public class SquirrelDialog : MonoBehaviour
         started = false;
         speechText.text = "";
 
-        if(GameController.instance.orange == 1)
+        if(GameController.instance.strawberry == 1)
         {
+            GameController.instance.strawberry -= 1;
+            GameController.instance.UpdateScoreText(5);
             sleepingSquirrel.SetActive(true);
             Destroy(gameObject);
         }
