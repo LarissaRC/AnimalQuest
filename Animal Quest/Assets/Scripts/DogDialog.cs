@@ -65,8 +65,14 @@ public class DogDialog : MonoBehaviour
     public void CloseDialogBox()
     {
         dialogObj.SetActive(false);
-        sleepingDog.SetActive(true);
-        Destroy(gameObject);
+        started = false;
+        speechText.text = "";
+
+        if(GameController.instance.orange == 1)
+        {
+            sleepingDog.SetActive(true);
+            Destroy(gameObject);
+        }
     }
 
     private void OnDrawGizmosSelected()

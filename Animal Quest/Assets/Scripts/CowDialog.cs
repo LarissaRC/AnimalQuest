@@ -17,6 +17,8 @@ public class CowDialog : MonoBehaviour
 
     public GameObject sleepingCow;
 
+    public int fruitType;
+
     private void FixedUpdate()
     {
         Interact();
@@ -65,8 +67,40 @@ public class CowDialog : MonoBehaviour
     public void CloseDialogBox()
     {
         dialogObj.SetActive(false);
-        sleepingCow.SetActive(true);
-        Destroy(gameObject);
+
+        started = false;
+        speechText.text = "";
+
+        switch (fruitType)
+        {
+            case 1:
+                if(GameController.instance.apple == 1)
+                    {
+                        sleepingCow.SetActive(true);
+                        Destroy(gameObject);
+                    }
+            break;
+            case 2:
+                if(GameController.instance.banana == 1)
+                    {
+                        sleepingCow.SetActive(true);
+                        Destroy(gameObject);
+                    }
+            break;
+            case 3:
+                if(GameController.instance.kiwi == 1)
+                    {
+                        sleepingCow.SetActive(true);
+                        Destroy(gameObject);
+                    }
+            break;
+        }
+
+        if(GameController.instance.orange == 1)
+        {
+            sleepingCow.SetActive(true);
+            Destroy(gameObject);
+        }
     }
 
     private void OnDrawGizmosSelected()

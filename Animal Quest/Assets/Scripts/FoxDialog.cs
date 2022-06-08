@@ -66,8 +66,14 @@ public class FoxDialog : MonoBehaviour
     public void CloseDialogBox()
     {
         dialogObj.SetActive(false);
-        sleepingFox.SetActive(true);
-        Destroy(gameObject);
+        started = false;
+        speechText.text = "";
+
+        if(GameController.instance.orange == 1)
+        {
+            sleepingFox.SetActive(true);
+            Destroy(gameObject);
+        }
     }
 
     private void OnDrawGizmosSelected()

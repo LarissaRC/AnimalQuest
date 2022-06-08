@@ -65,8 +65,15 @@ public class SquirrelDialog : MonoBehaviour
     public void CloseDialogBox()
     {
         dialogObj.SetActive(false);
-        sleepingSquirrel.SetActive(true);
-        Destroy(gameObject);
+
+        started = false;
+        speechText.text = "";
+
+        if(GameController.instance.orange == 1)
+        {
+            sleepingSquirrel.SetActive(true);
+            Destroy(gameObject);
+        }
     }
 
     private void OnDrawGizmosSelected()
