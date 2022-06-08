@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
 
     public bool cat2Unblocked = false;
     public bool cat3Unblocked = false;
+    public bool armadilloUnblocked = false;
 
     public Text appleText;
     public Text bananaText;

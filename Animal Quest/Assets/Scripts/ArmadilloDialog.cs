@@ -17,6 +17,11 @@ public class ArmadilloDialog : MonoBehaviour
     
     public GameObject sleepingArmadillo;
 
+    private string rightAnswer = "17";
+    public GameObject inputField;
+    public GameObject rightImg;
+    public GameObject wrongImg;
+
     private void FixedUpdate()
     {
         Interact();
@@ -62,6 +67,24 @@ public class ArmadilloDialog : MonoBehaviour
         }
     }
 
+    public void VerifyAnswer()
+    {
+        string answer = inputField.GetComponent<Text>().text;
+
+        if(answer == rightAnswer)
+        {
+            wrongImg.SetActive(false);
+            rightImg.SetActive(true);
+
+            GameController.instance.armadilloUnblocked = true;
+        }
+        else
+        {
+            wrongImg.SetActive(true);
+            rightImg.SetActive(false);
+        }
+    }
+
     public void CloseDialogBox()
     {
         dialogObj.SetActive(false);
@@ -69,7 +92,7 @@ public class ArmadilloDialog : MonoBehaviour
         started = false;
         speechText.text = "";
 
-        if(GameController.instance.orange == 2)
+        if(GameController.instance.armadilloUnblocked)
         {
             sleepingArmadillo.SetActive(true);
             Destroy(gameObject);
