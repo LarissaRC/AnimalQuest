@@ -49,7 +49,16 @@ public class Cat4Dialog : MonoBehaviour
     public void Speech(string txt)
     {
         dialogObj.SetActive(true);
-        sentence = txt;
+        
+        if(GameController.instance.key == 1)
+        {
+            sentence = "Espero que consiga abrir o tesouro. Nao esquece de dividir comigo hehe.";
+        }
+        else
+        {
+            sentence = txt;
+        }
+
         StartCoroutine(TypeSentence());
     }
 
@@ -65,8 +74,15 @@ public class Cat4Dialog : MonoBehaviour
     public void CloseDialogBox()
     {
         dialogObj.SetActive(false);
-        sleepingCat.SetActive(true);
-        Destroy(gameObject);
+
+        started = false;
+        speechText.text = "";
+
+        if(GameController.instance.key == 1)
+        {
+            sleepingCat.SetActive(true);
+            Destroy(gameObject);
+        }
     }
 
     private void OnDrawGizmosSelected()

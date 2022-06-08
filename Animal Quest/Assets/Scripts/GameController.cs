@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public int orange;
     public int pineapple;
     public int strawberry;
+    public int key;
 
     public bool cat2Unblocked = false;
     public bool cat3Unblocked = false;
@@ -23,6 +24,7 @@ public class GameController : MonoBehaviour
     public Text orangeText;
     public Text pineappleText;
     public Text strawberryText;
+    public Text keyText;
 
     public static GameController instance;
 
@@ -52,6 +54,9 @@ public class GameController : MonoBehaviour
                 break;
                 case 5:
                     strawberryText.text = strawberry.ToString();
+                break;
+                case 6:
+                    keyText.text = key.ToString();
                 break;
             }
     }
