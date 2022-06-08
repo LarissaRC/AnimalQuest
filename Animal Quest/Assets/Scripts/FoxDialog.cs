@@ -16,6 +16,8 @@ public class FoxDialog : MonoBehaviour
     public float radious;
     bool onRadious, started = false;
 
+    public GameObject sleepingFox;
+
     private void FixedUpdate()
     {
         Interact();
@@ -64,6 +66,8 @@ public class FoxDialog : MonoBehaviour
     public void CloseDialogBox()
     {
         dialogObj.SetActive(false);
+        sleepingFox.SetActive(true);
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()

@@ -15,6 +15,8 @@ public class CowDialog : MonoBehaviour
     public float radious;
     bool onRadious, started = false;
 
+    public GameObject sleepingCow;
+
     private void FixedUpdate()
     {
         Interact();
@@ -63,6 +65,8 @@ public class CowDialog : MonoBehaviour
     public void CloseDialogBox()
     {
         dialogObj.SetActive(false);
+        sleepingCow.SetActive(true);
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()

@@ -15,6 +15,8 @@ public class SquirrelDialog : MonoBehaviour
     public float radious;
     bool onRadious, started = false;
 
+    public GameObject sleepingSquirrel;
+
     private void FixedUpdate()
     {
         Interact();
@@ -63,6 +65,8 @@ public class SquirrelDialog : MonoBehaviour
     public void CloseDialogBox()
     {
         dialogObj.SetActive(false);
+        sleepingSquirrel.SetActive(true);
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()

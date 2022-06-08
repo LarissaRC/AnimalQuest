@@ -8,6 +8,31 @@ public class Player : MonoBehaviour
     public Animator animator;
     public float speed;
 
+    public LayerMask talkingThingsLayer;
+    public GameObject dialogCloud;
+    public float radious;
+    bool onRadious;
+
+    private void FixedUpdate()
+    {
+        Interact();
+    }
+
+    public void Interact()
+    {
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, radious, talkingThingsLayer);
+
+        // Se colidir
+        if(hit != null)
+        {
+            onRadious = true;
+        }
+        else
+        {
+            onRadious = false;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -18,5 +43,19 @@ public class Player : MonoBehaviour
         animator.SetFloat("Speed", movement.magnitude);
 
         transform.position = transform.position + movement * speed * Time.deltaTime;
+
+        if(onRadious)
+        {
+            dialogCloud.SetActive(true);
+        }
+        else
+        {
+            dialogCloud.SetActive(false);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, radious);
     }
 }

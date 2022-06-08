@@ -15,6 +15,8 @@ public class DogDialog : MonoBehaviour
     public float radious;
     bool onRadious, started = false;
 
+    public GameObject sleepingDog;
+
     private void FixedUpdate()
     {
         Interact();
@@ -63,6 +65,8 @@ public class DogDialog : MonoBehaviour
     public void CloseDialogBox()
     {
         dialogObj.SetActive(false);
+        sleepingDog.SetActive(true);
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()

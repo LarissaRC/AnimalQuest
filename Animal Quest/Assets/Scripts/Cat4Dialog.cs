@@ -14,6 +14,8 @@ public class Cat4Dialog : MonoBehaviour
     public LayerMask playerLayer;
     public float radious;
     bool onRadious, started = false;
+    
+    public GameObject sleepingCat;
 
     private void FixedUpdate()
     {
@@ -63,6 +65,8 @@ public class Cat4Dialog : MonoBehaviour
     public void CloseDialogBox()
     {
         dialogObj.SetActive(false);
+        sleepingCat.SetActive(true);
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()
