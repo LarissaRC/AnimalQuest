@@ -14,6 +14,8 @@ public class ArmadilloDialog : MonoBehaviour
     public LayerMask playerLayer;
     public float radious;
     bool onRadious, started = false;
+    
+    public GameObject sleepingArmadillo;
 
     private void FixedUpdate()
     {
@@ -63,6 +65,15 @@ public class ArmadilloDialog : MonoBehaviour
     public void CloseDialogBox()
     {
         dialogObj.SetActive(false);
+        
+        started = false;
+        speechText.text = "";
+
+        if(GameController.instance.orange == 2)
+        {
+            sleepingArmadillo.SetActive(true);
+            Destroy(gameObject);
+        }
     }
 
     private void OnDrawGizmosSelected()

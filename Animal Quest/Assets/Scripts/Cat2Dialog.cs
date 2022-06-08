@@ -17,6 +17,11 @@ public class Cat2Dialog : MonoBehaviour
     
     public GameObject sleepingCat;
 
+    private string rightAnswer = "42";
+    public GameObject inputField;
+    public GameObject rightImg;
+    public GameObject wrongImg;
+
     private void FixedUpdate()
     {
         Interact();
@@ -62,11 +67,36 @@ public class Cat2Dialog : MonoBehaviour
         }
     }
 
+    public void VerifyAnswer()
+    {
+        string answer = inputField.GetComponent<Text>().text;
+
+        if(answer == rightAnswer)
+        {
+            wrongImg.SetActive(false);
+            rightImg.SetActive(true);
+
+            GameController.instance.cat2Unblocked = true;
+        }
+        else
+        {
+            wrongImg.SetActive(true);
+            rightImg.SetActive(false);
+        }
+    }
+
     public void CloseDialogBox()
     {
         dialogObj.SetActive(false);
-        sleepingCat.SetActive(true);
-        Destroy(gameObject);
+
+        started = false;
+        speechText.text = "";
+
+        if(GameController.instance.cat2Unblocked)
+        {
+            sleepingCat.SetActive(true);
+            Destroy(gameObject);
+        }
     }
 
     private void OnDrawGizmosSelected()

@@ -13,6 +13,9 @@ public class GameController : MonoBehaviour
     public int pineapple;
     public int strawberry;
 
+    public bool cat2Unblocked = false;
+    public bool cat3Unblocked = false;
+
     public Text appleText;
     public Text bananaText;
     public Text kiwiText;
