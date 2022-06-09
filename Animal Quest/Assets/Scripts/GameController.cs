@@ -47,6 +47,11 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
+    public void OpenRepository()
+    {
+        Application.OpenURL("https://github.com/LarissaRC/AnimalQuest");
+    }
+
     public void ExitGame()
     {
         Application.Quit();
