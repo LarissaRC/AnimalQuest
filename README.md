@@ -49,4 +49,4 @@ Para movimentar o personagem basta usar as setas no teclado ou as teclas **a**(E
 * Uma certa parte no jogo vai te levar a este [vídeo](https://youtu.be/dQw4w9WgXcQ).
 * O jogo lhe permite seguir um atalho para pegar a chave que lhe dá acesso ao tesouro. Basta buscar por uma brecha escondida na cerca que rodeia a fazenda.
 ## Gameplay
-A ser inserido futuramente
+<https://youtu.be/LNLydpFn7Jw>
