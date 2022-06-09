@@ -19,9 +19,9 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void Home(int scheneID)
+    public void Home()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(scheneID);
+        SceneManager.LoadScene("Menu");
     }
 }

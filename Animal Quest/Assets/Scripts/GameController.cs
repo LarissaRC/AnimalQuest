@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -34,6 +35,21 @@ public class GameController : MonoBehaviour
 
         // Resolução da tela padrão
         Screen.SetResolution(880, 360, true);
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+    public void OpenMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
     public void UpdateScoreText(int fruit)
