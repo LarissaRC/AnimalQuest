@@ -17,7 +17,7 @@ public class ArmadilloDialog : MonoBehaviour
     
     public GameObject sleepingArmadillo;
 
-    private string rightAnswer = "5";
+    private string rightAnswer = "6";
     public GameObject inputField;
     public GameObject rightImg;
     public GameObject wrongImg;
