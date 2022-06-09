@@ -31,6 +31,9 @@ public class GameController : MonoBehaviour
     void Start()
     {
         instance = this;
+
+        // Resolução da tela padrão
+        Screen.SetResolution(880, 360, true);
     }
 
     public void UpdateScoreText(int fruit)
